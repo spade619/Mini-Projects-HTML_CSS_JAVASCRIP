@@ -69,5 +69,48 @@ hideBox.addEventListener('change', function(e){
     }
 })
 
+//FILTER ITEMS USING SEARCH BOX//
+//targets the search bar id on the form
+const searchBar=document.forms['search-books'].querySelector('input')
+//adding an event listener of key pressed-released on the input form
+searchBar.addEventListener('keyup', function(e){
+    //converts all the letters inputted to lower case
+    const term = e.target.value.toLowerCase()
+    //grabs all the li elements on the dom
+    const books = list.getElementsByTagName('li')
+
+    //turn all the li into an array from being an html collection
+    Array.from(books).forEach(function(book){
+       //grabs the first element child of the li which is the book title 
+       //and puts a text content on the book title
+        const title = book.firstElementChild.textContent
+        //checks if term is equals to the title by referencing the index of the term variable declared 
+        if(title.toLowerCase().indexOf(term)!= -1){
+            book.style.display='block'
+        }else {
+            book.style.display='none'
+        }
+    })
+})
+
+
+//TABBED CONTENT
+
+const tabs = document.querySelector('.tabs')
+const panels = document.querySelectorAll('.panel')
+tabs.addEventListener('click', function(e){
+
+    if(e.target.tagName == "LI"){
+        const targetPanel = document.querySelector(e.target.dataset.target)
+    
+    panels.forEach(function(panel){
+        if(panel == targetPanel){
+            panel.classList.add('active')
+        }else{
+            panel.classList.remove('active')
+        }
+    })
+    }
+})
 
 
