@@ -1,0 +1,10 @@
+1. create a repo on github
+2. cd on project to be uploaded
+3."on cmd" git init
+4."to see status" git status    
+5. "to add all repo" git add .
+6."run status again to see" git status  "if turns green means its ready to be committed"
+7."to the folder" git commit -m "uploaded"
+8."run status again to see" git status "if status is a working tree means its okay"
+9."to begin the upload" git remote add origin https://github.com/spade619/Brochures-Porfolio.git
+10."finally to push it with Master as the default branch" git push -u origin master
